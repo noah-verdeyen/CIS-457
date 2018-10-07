@@ -111,9 +111,7 @@ public class FTPServerThread extends Thread {
 						Thread.sleep(20);
 					
 					String filePath = System.getProperty("user.dir") + "/";
-					String fileName = inData.readUTF();
-					filePath += fileName.substring(0, fileName.indexOf(".")) + "_stored" +
-							fileName.substring(fileName.indexOf("."));
+					filePath += inData.readUTF();
 					
 					inData.readFully(dataIn);
 					try (FileOutputStream fos = new FileOutputStream(filePath)) {

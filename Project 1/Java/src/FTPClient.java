@@ -74,8 +74,6 @@ public class FTPClient {
 							chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 							chooser.showSaveDialog(null);
 							String filePath = chooser.getSelectedFile() + "/" + temp[temp.length - 1];
-							filePath = filePath.substring(0, filePath.indexOf(".")) 
-									+ "_received" + filePath.substring(filePath.indexOf("."));
 							System.out.println(filePath);
 							byte[] dataIn = new byte[inData.readInt()];
 							inData.readFully(dataIn);
@@ -122,6 +120,8 @@ public class FTPClient {
 					} else if (sentence.equals("quit:")) {
 						outToServer.writeBytes(sentence + " " + '\n');
 						clientgo = false;
+					} else {
+						System.out.println("Command not recognized.");
 					}
 					
 					if (!sentence.equals("quit:"))
