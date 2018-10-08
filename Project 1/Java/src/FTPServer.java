@@ -21,7 +21,8 @@ public class FTPServer {
                 System.out.println("Accepting connection from " + 
                 		controlSocket.getInetAddress().getHostName() +  
                 		", connection #" + currentSocket);
-                Thread server = new FTPServerThread(controlSocket, currentSocket++, port);
+                Thread server = new FTPServerThread(controlSocket, port);
+                currentSocket++;
                 server.start();
 			}
 		} catch (SocketException e) {
@@ -39,7 +40,4 @@ public class FTPServer {
 			System.out.println("Error: " + e.toString());
 		}
 	}
-	
-
-
 }

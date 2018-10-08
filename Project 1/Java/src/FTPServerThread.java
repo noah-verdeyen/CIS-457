@@ -15,24 +15,22 @@ import java.util.StringTokenizer;
 
 public class FTPServerThread extends Thread {
 	private Socket controlSocket;
-	private int currentSocket;
 	private DataOutputStream outToClient;
 	private BufferedReader inFromClient;
 	private List<String> clientTokens;
 	private String clientCommand;
 	private boolean clientGo;
 	
-	public FTPServerThread(Socket controlSocket,int currentSocket, int port)
+	public FTPServerThread(Socket controlSocket, int port)
     {
 		clientGo = true;
 		this.controlSocket = controlSocket;
-        this.currentSocket = currentSocket;
         clientTokens = new ArrayList<String>();
 		try {
 			outToClient = new DataOutputStream(controlSocket.getOutputStream());
 			inFromClient = new BufferedReader(new InputStreamReader(controlSocket.getInputStream()));
 		} catch (IOException e) {
-			System.out.println("Error: " + e.toString());
+			System.out.println("Error: " + e.getLocalizedMessage());
 		}
     }
 	

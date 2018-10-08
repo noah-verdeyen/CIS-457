@@ -1,9 +1,17 @@
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import java.text.*;
-import java.lang.*;
-import javax.swing.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.StringTokenizer;
+
+import javax.swing.JFileChooser;
 
 public class FTPClient {
 
